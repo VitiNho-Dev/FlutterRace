@@ -24,7 +24,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
         repository: LoginRepositoryImpl(database: AppDatabase.instance));
     controller.addListener(() {
       controller.state.when(
-          success: (value) => Navigator.pushNamed(context, '/home'),
+          success: (value) => Navigator.pop(context),
           error: (message, _) => scaffoldKey.currentState!.showBottomSheet(
                 (context) => BottomSheet(
                   onClosing: () {},

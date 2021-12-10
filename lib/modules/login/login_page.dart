@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meuapp/modules/login/login_controller.dart';
-import 'package:meuapp/modules/login/repositorys/login_repository.dart';
 import 'package:meuapp/modules/login/repositorys/login_repository_impl.dart';
 import 'package:meuapp/shared/services/app_database.dart';
 import 'package:meuapp/shared/theme/app_theme.dart';
@@ -26,7 +25,8 @@ class _LoginPageState extends State<LoginPage> {
     );
     controller.addListener(() {
       controller.state.when(
-          success: (data) => Navigator.pushNamed(context, '/home'),
+          success: (value) =>
+              Navigator.pushNamed(context, '/home', arguments: value),
           error: (message, _) => scaffoldKey.currentState!.setState(() {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: AppTheme.colors.background,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
