@@ -7,11 +7,15 @@ abstract class IAppTextStyle {
   TextStyle get title;
   TextStyle get subtitle;
   TextStyle get label;
+  TextStyle get titleListTile;
+  TextStyle get subtitleListTile;
   TextStyle get input;
   TextStyle get hint;
+  TextStyle get hintBold;
   TextStyle get buttonBackgroundColor;
   TextStyle get buttonBoldTextColor;
   TextStyle get buttonTextColor;
+  TextStyle get chart;
 }
 
 class AppTextStyle implements IAppTextStyle {
@@ -38,7 +42,7 @@ class AppTextStyle implements IAppTextStyle {
 
   @override
   TextStyle get hint => GoogleFonts.inter(
-        fontSize: 14,
+        fontSize: 10,
         color: AppTheme.colors.inputNormal,
         fontWeight: FontWeight.normal,
       );
@@ -68,6 +72,34 @@ class AppTextStyle implements IAppTextStyle {
   TextStyle get title => GoogleFonts.inter(
         fontSize: 22,
         color: AppTheme.colors.textColor,
+        fontWeight: FontWeight.bold,
+      );
+
+  @override
+  TextStyle get titleListTile => GoogleFonts.inter(
+        fontSize: 16,
+        color: AppTheme.colors.textColor,
+        fontWeight: FontWeight.w500,
+      );
+
+  @override
+  TextStyle get subtitleListTile => GoogleFonts.inter(
+        fontSize: 14,
+        color: AppTheme.colors.textColor,
+        fontWeight: FontWeight.normal,
+      );
+
+  @override
+  TextStyle get chart => GoogleFonts.inter(
+        fontSize: 14,
+        color: AppTheme.colors.textEnabled,
+        fontWeight: FontWeight.bold,
+      );
+
+  @override
+  TextStyle get hintBold => GoogleFonts.inter(
+        fontSize: 12,
+        color: AppTheme.colors.inputNormal,
         fontWeight: FontWeight.bold,
       );
 }

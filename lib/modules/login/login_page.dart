@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   builder: (_, __) => controller.state.when(
                     loading: () => const CircularProgressIndicator(),
                     orElse: () => Button(
-                      onPressed: () => controller.login(),
+                      onTap: () => controller.login(),
                       label: 'Entrar',
                       type: ButtonType.fill,
                     ),
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 58),
                 Button(
-                  onPressed: () {
+                  onTap: () {
                     Navigator.pushNamed(context, '/login/create-account');
                   },
                   label: 'Criar Conta',

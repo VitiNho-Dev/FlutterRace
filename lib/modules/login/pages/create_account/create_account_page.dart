@@ -103,7 +103,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       child: CircularProgressIndicator(),
                     ),
                     orElse: () => Button(
-                      onPressed: () => controller.create(),
+                      onTap: () => controller.create(),
                       label: 'Criar Conta',
                       type: ButtonType.fill,
                     ),

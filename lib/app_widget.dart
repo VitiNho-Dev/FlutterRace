@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meuapp/modules/feed_page/feed_page.dart';
 import 'package:meuapp/modules/home/home_page.dart';
 import 'package:meuapp/modules/login/pages/create_account/create_account_page.dart';
+import 'package:meuapp/modules/profile/profile_page.dart';
 import 'package:meuapp/modules/splash/splash_page.dart';
 import 'package:meuapp/shared/models/user_model.dart';
 
@@ -15,12 +17,18 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Race #1',
       theme: ThemeData(primarySwatch: Colors.green),
-      initialRoute: '/home',
+      initialRoute: '/splash',
       routes: {
         '/splash': (context) => const SplashPage(),
         '/login': (context) => const LoginPage(),
         '/login/create-account': (context) => const CreateAccountPage(),
-        '/home': (context) => HomePage(),
+        '/home': (context) => HomePage(
+              pages: const [
+                FeedPage(),
+                ProfilePage(),
+              ],
+              user: ModalRoute.of(context)!.settings.arguments as UserModel,
+            ),
         //user: ModalRoute.of(context)!.settings.arguments as UserModel,
       },
     );
